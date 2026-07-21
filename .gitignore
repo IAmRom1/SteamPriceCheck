@@ -1,0 +1,13 @@
+# Local scratch notes (kept out of the repo — curated notes go to ROADMAP.md)
+note.md
+notes/
+*.local.md
+
+# Environment files (no secrets in this project, but never commit them anyway)
+.env
+.env.*
+
+# OS / editor junk
+Thumbs.db
+.DS_Store
+*.log
