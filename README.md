@@ -57,38 +57,28 @@ when it exists.
 3. Open any Steam game page. On first run, allow the script to access
    `instant-gaming.com` / `algolia.net` when Tampermonkey asks.
 
-### Installation (Steam desktop client)
+### Steam desktop client — do NOT install Tampermonkey there
 
-You can run the script directly inside the Steam client's built-in browser:
+> **Warning:** as of mid-2026, installing Tampermonkey — regular **or**
+> Legacy — in the Steam client's embedded browser **crashes the Steam
+> client**. This is a known, unresolved incompatibility between Tampermonkey
+> and Steam's CEF (Chromium 126); see
+> [Tampermonkey#2758](https://github.com/tampermonkey/tampermonkey/issues/2758).
+> Even [Extendium](https://github.com/BossSloth/Extendium) (the Millennium
+> plugin that loads Chrome extensions inside Steam) deliberately blocklists
+> Tampermonkey because it bricks the client. Regular content-script
+> extensions such as SteamDB work fine — userscript managers do not.
 
-1. In the Steam client **store**, **middle-click** (mouse-wheel click) any
-   game — a browser window opens.
-2. Click the **+** next to the page tab to open a new tab.
-3. In the address bar, remove `https://www.startpage.com/` and enter:
+**If Steam no longer starts** after installing it:
 
-   `https://chromewebstore.google.com/detail/tampermonkey-legacy/lcmhijbkigalmkeommnijlpobloojgfn`
+1. Exit Steam completely (system tray → right-click the Steam icon → *Exit*).
+2. Delete the folder `%LOCALAPPDATA%\Steam\htmlcache`
+   (on older clients: `Steam\config\htmlcache`).
+3. Relaunch Steam. This resets the embedded browser — extensions, cookies and
+   cache — and removes the crashing extension.
 
-   > **Why "Tampermonkey Legacy" and not regular Tampermonkey?** The regular
-   > (Manifest V3) version relies on Chromium's `userScripts` API, which is
-   > locked behind the "Allow User Scripts" / Developer mode toggle — a
-   > toggle that has no effect in Steam's embedded Chromium (you get a
-   > *"Please enable the 'Allow User Scripts' setting"* error even with
-   > everything enabled). Tampermonkey Legacy is the official Manifest V2
-   > build made for such environments and works without any toggle.
-
-4. Install the Tampermonkey Legacy extension.
-5. Open a new tab and enter the script install URL:
-
-   `https://github.com/IAmRom1/SteamPriceCheck/raw/main/steam-price-check.user.js`
-
-6. Confirm the installation in Tampermonkey. The price comparison now shows up
-   on store pages inside the Steam client.
-
-> **Already installed regular Tampermonkey in the Steam browser?** Remove or
-> disable it there first, then install the Legacy version. (In a normal
-> desktop browser, you can also try enabling the toggle and **fully
-> restarting** the browser — the permission is only picked up on restart —
-> but inside the Steam client the Legacy version is the reliable path.)
+Until Tampermonkey and Valve resolve this, use the script in a regular
+browser (see the section above — Brave, Chrome, Edge, Firefox all work).
 
 ### How it works
 
@@ -175,42 +165,31 @@ boutique quand elle existe.
    autorisez l'accès à `instant-gaming.com` / `algolia.net` quand Tampermonkey
    le demande.
 
-### Installation (client Steam de bureau)
+### Client Steam de bureau — N'Y installez PAS Tampermonkey
 
-Le script peut tourner directement dans le navigateur intégré du client
-Steam :
+> **Attention :** à la mi-2026, installer Tampermonkey — normal **ou**
+> Legacy — dans le navigateur intégré du client Steam **fait planter le
+> client Steam**. C'est une incompatibilité connue et non résolue entre
+> Tampermonkey et le CEF de Steam (Chromium 126) ; voir
+> [Tampermonkey#2758](https://github.com/tampermonkey/tampermonkey/issues/2758).
+> Même [Extendium](https://github.com/BossSloth/Extendium) (le plugin
+> Millennium qui charge des extensions Chrome dans Steam) met volontairement
+> Tampermonkey sur liste noire car il brique le client. Les extensions
+> classiques à content scripts comme SteamDB fonctionnent — pas les
+> gestionnaires de userscripts.
 
-1. Dans le **magasin** du client Steam, faites un **clic molette** sur
-   n'importe quel jeu — une fenêtre de navigateur s'ouvre.
-2. Cliquez sur le **+** à côté de l'onglet de la page pour ouvrir un nouvel
-   onglet.
-3. Dans la barre d'adresse, retirez `https://www.startpage.com/` et entrez :
+**Si Steam ne démarre plus** après l'avoir installé :
 
-   `https://chromewebstore.google.com/detail/tampermonkey-legacy/lcmhijbkigalmkeommnijlpobloojgfn`
+1. Quittez Steam complètement (zone de notification → clic droit sur
+   l'icône Steam → *Quitter*).
+2. Supprimez le dossier `%LOCALAPPDATA%\Steam\htmlcache`
+   (sur les anciens clients : `Steam\config\htmlcache`).
+3. Relancez Steam. Cela réinitialise le navigateur intégré — extensions,
+   cookies et cache — et supprime l'extension fautive.
 
-   > **Pourquoi « Tampermonkey Legacy » et pas le Tampermonkey normal ?** La
-   > version normale (Manifest V3) repose sur l'API `userScripts` de
-   > Chromium, verrouillée derrière le réglage « Autoriser les scripts
-   > utilisateur » / mode développeur — un réglage sans effet dans le
-   > Chromium embarqué de Steam (on obtient l'erreur *« Merci d'activer le
-   > paramètre "Autoriser les scripts utilisateur" »* même quand tout est
-   > activé). Tampermonkey Legacy est la version officielle en Manifest V2,
-   > conçue pour ces environnements, et fonctionne sans aucun réglage.
-
-4. Installez l'extension Tampermonkey Legacy.
-5. Ouvrez un nouvel onglet et entrez l'URL d'installation du script :
-
-   `https://github.com/IAmRom1/SteamPriceCheck/raw/main/steam-price-check.user.js`
-
-6. Confirmez l'installation dans Tampermonkey. Le comparateur apparaît
-   désormais sur les pages du magasin, directement dans le client Steam.
-
-> **Vous aviez déjà installé le Tampermonkey normal dans le navigateur
-> Steam ?** Supprimez-le ou désactivez-le d'abord, puis installez la version
-> Legacy. (Dans un navigateur de bureau classique, vous pouvez aussi tenter
-> d'activer le réglage puis de **redémarrer complètement** le navigateur —
-> la permission n'est prise en compte qu'au redémarrage — mais dans le
-> client Steam, la version Legacy est la voie fiable.)
+En attendant un correctif de Tampermonkey/Valve, utilisez le script dans un
+navigateur classique (voir la section ci-dessus — Brave, Chrome, Edge,
+Firefox fonctionnent tous).
 
 ### Fonctionnement
 
