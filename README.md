@@ -66,15 +66,29 @@ You can run the script directly inside the Steam client's built-in browser:
 2. Click the **+** next to the page tab to open a new tab.
 3. In the address bar, remove `https://www.startpage.com/` and enter:
 
-   `https://chromewebstore.google.com/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo`
+   `https://chromewebstore.google.com/detail/tampermonkey-legacy/lcmhijbkigalmkeommnijlpobloojgfn`
 
-4. Install the Tampermonkey extension.
+   > **Why "Tampermonkey Legacy" and not regular Tampermonkey?** The regular
+   > (Manifest V3) version relies on Chromium's `userScripts` API, which is
+   > locked behind the "Allow User Scripts" / Developer mode toggle — a
+   > toggle that has no effect in Steam's embedded Chromium (you get a
+   > *"Please enable the 'Allow User Scripts' setting"* error even with
+   > everything enabled). Tampermonkey Legacy is the official Manifest V2
+   > build made for such environments and works without any toggle.
+
+4. Install the Tampermonkey Legacy extension.
 5. Open a new tab and enter the script install URL:
 
    `https://github.com/IAmRom1/SteamPriceCheck/raw/main/steam-price-check.user.js`
 
 6. Confirm the installation in Tampermonkey. The price comparison now shows up
    on store pages inside the Steam client.
+
+> **Already installed regular Tampermonkey in the Steam browser?** Remove or
+> disable it there first, then install the Legacy version. (In a normal
+> desktop browser, you can also try enabling the toggle and **fully
+> restarting** the browser — the permission is only picked up on restart —
+> but inside the Steam client the Legacy version is the reliable path.)
 
 ### How it works
 
@@ -172,15 +186,31 @@ Steam :
    onglet.
 3. Dans la barre d'adresse, retirez `https://www.startpage.com/` et entrez :
 
-   `https://chromewebstore.google.com/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo`
+   `https://chromewebstore.google.com/detail/tampermonkey-legacy/lcmhijbkigalmkeommnijlpobloojgfn`
 
-4. Installez l'extension Tampermonkey.
+   > **Pourquoi « Tampermonkey Legacy » et pas le Tampermonkey normal ?** La
+   > version normale (Manifest V3) repose sur l'API `userScripts` de
+   > Chromium, verrouillée derrière le réglage « Autoriser les scripts
+   > utilisateur » / mode développeur — un réglage sans effet dans le
+   > Chromium embarqué de Steam (on obtient l'erreur *« Merci d'activer le
+   > paramètre "Autoriser les scripts utilisateur" »* même quand tout est
+   > activé). Tampermonkey Legacy est la version officielle en Manifest V2,
+   > conçue pour ces environnements, et fonctionne sans aucun réglage.
+
+4. Installez l'extension Tampermonkey Legacy.
 5. Ouvrez un nouvel onglet et entrez l'URL d'installation du script :
 
    `https://github.com/IAmRom1/SteamPriceCheck/raw/main/steam-price-check.user.js`
 
 6. Confirmez l'installation dans Tampermonkey. Le comparateur apparaît
    désormais sur les pages du magasin, directement dans le client Steam.
+
+> **Vous aviez déjà installé le Tampermonkey normal dans le navigateur
+> Steam ?** Supprimez-le ou désactivez-le d'abord, puis installez la version
+> Legacy. (Dans un navigateur de bureau classique, vous pouvez aussi tenter
+> d'activer le réglage puis de **redémarrer complètement** le navigateur —
+> la permission n'est prise en compte qu'au redémarrage — mais dans le
+> client Steam, la version Legacy est la voie fiable.)
 
 ### Fonctionnement
 
