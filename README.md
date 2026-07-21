@@ -110,6 +110,11 @@ Results are cached for 30 minutes per game (sessionStorage).
   `window.algoliaConfig` on their search page.
 - Matching threshold: `CONFIG.MATCH_THRESHOLD` (default 0.6).
 
+### Roadmap
+
+Planned features and technical leads (Steam client support, more merchants,
+country selection…) are detailed in **[ROADMAP.md](ROADMAP.md)**.
+
 ### License
 
 [MIT](LICENSE) — developed by [IAmRom1](https://github.com/IAmRom1).
@@ -223,6 +228,12 @@ Les résultats sont mis en cache 30 minutes par jeu (sessionStorage).
   peut-être périmée *et* l'extraction à chaud a échoué — vérifiez le format de
   `window.algoliaConfig` sur leur page de recherche.
 - Seuil de matching : `CONFIG.MATCH_THRESHOLD` (0,6 par défaut).
+
+### Feuille de route
+
+Les évolutions prévues et les pistes techniques (support du client Steam,
+nouveaux marchands, choix du pays…) sont détaillées dans
+**[ROADMAP.md](ROADMAP.md)** (en anglais).
 
 ### Licence
 
